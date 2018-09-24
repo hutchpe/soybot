@@ -10,12 +10,12 @@ const config = {
     lower: 2,
     upper: 5
   },
-  coolDownSeconds: 20
+  coolDownSeconds: 3
 }
 
 const soyTriggers = [
-  `fag`, `fags`, `faggots`, `faggot`,
-  `nigger`, `niggers`, `nog`,
+  `fag`, `fags`, `faggots`, `faggot`, `gay`,
+  `nigger`, `niggers`, `nog`, `nig`,
   `abo`,
   `tranny`,
   `white`,
@@ -26,7 +26,10 @@ const soyTriggers = [
   `chad`,
   `wage`, `gap`,
   `free`, `freedom`,
-  `thot`, `slut`, `whore`
+  `thot`, `slut`, `whore`, `ho`, `hoe`,
+  `jordan`, `peterson`,
+  `moonman`,
+  `lynch`
 ]
 
 const soyQuips = [
@@ -56,7 +59,11 @@ const soyQuips = [
   `problematic`,
   `just shut up and listen`,
   `my wifes boyfriend`,
-  `my wifes children`
+  `my wifes children`,
+  `so many immigrant cocks`,
+  `we will replace you`,
+  `cuckolding is a gentlemen's fetish`,
+  `um thats not my pronoun`
 ]
 
 const wrangledNibbas = [
@@ -93,6 +100,11 @@ client.on('ready', () => {
 });
 
 client.on('message', msg => {
+  if (msg.content === '?triggered') {
+    msg.reply(JSON.stringify(triggeringNibbas)); 
+    return
+  }
+
   if (!isSoyTriggered(msg.content)) { // check if message is triggering
     return
   }
@@ -118,7 +130,7 @@ client.on('message', msg => {
 
   triggeringNibbas[msg.author.id].cutoff = getTimeStamp() + config.coolDownSeconds
 
-  console.log(triggeringNibbas)
+  // console.log(triggeringNibbas)
   
   for (let i = 0; i < randomInt(config.count.lower, config.count.upper); i++) { // i am soy incarnate
     msg.reply(generateSoy()); 
