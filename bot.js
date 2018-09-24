@@ -3,8 +3,8 @@ const client = new Discord.Client();
 
 const config = {
   message: {
-    lower: 3,
-    upper: 9
+    lower: 5,
+    upper: 30
   },
   count: {
     lower: 2,
@@ -58,6 +58,8 @@ const soyQuips = [
   `my wifes children`
 ]
 
+const wrangledNibbas = `154528976088465408`
+
 const isSoyTriggered = message => {
   let words = message.split(' ')
   return words.some(word =>
@@ -82,6 +84,11 @@ client.on('ready', () => {
 });
 
 client.on('message', msg => {
+  if (msg.author.id === wrangledNibbas) {
+    console.log('No jacc')
+    return
+  }
+
   if (!isSoyTriggered(msg.content)) {
     return
   }
