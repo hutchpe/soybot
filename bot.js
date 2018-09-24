@@ -3,13 +3,14 @@ const client = new Discord.Client();
 
 const config = {
   message: {
-    lower: 5,
-    upper: 30
+    lower: 10,
+    upper: 50
   },
   count: {
     lower: 2,
     upper: 5
-  }
+  },
+  coolDownSeconds: 20
 }
 
 const soyTriggers = [
@@ -58,7 +59,11 @@ const soyQuips = [
   `my wifes children`
 ]
 
-const wrangledNibbas = `154528976088465408`
+const wrangledNibbas = [
+  // `154528976088465408`
+]
+
+let triggeringNibbas = {}
 
 const isSoyTriggered = message => {
   let words = message.split(' ')
@@ -79,21 +84,43 @@ const generateSoy = () => {
   return soyRes.join(' ')
 }
 
+const getTimeStamp = () => {
+  return Math.round((new Date()).getTime() / 1000)
+}
+
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
 });
 
 client.on('message', msg => {
-  if (msg.author.id === wrangledNibbas) {
-    console.log('No jacc')
+  if (!isSoyTriggered(msg.content)) { // check if message is triggering
     return
   }
 
-  if (!isSoyTriggered(msg.content)) {
+  if (wrangledNibbas.some(nibba => nibba === msg.author.id)) { // fuck off jack
+    console.log(`wrangled`)
     return
   }
 
-  for (let i = 0; i < randomInt(config.count.lower, config.count.upper); i++) {
+  let nibba = triggeringNibbas[msg.author.id]
+  if (!nibba) { // if we dont have this user, insert them
+    triggeringNibbas[msg.author.id] = {}
+    triggeringNibbas[msg.author.id].bigotry = 1
+    triggeringNibbas[msg.author.id].cutoff = 0
+  } else {
+    triggeringNibbas[msg.author.id].bigotry += 1
+  }
+
+  if (triggeringNibbas[msg.author.id].cutoff > getTimeStamp()) {
+    console.log(`spamming!`)
+    return
+  }
+
+  triggeringNibbas[msg.author.id].cutoff = getTimeStamp() + config.coolDownSeconds
+
+  console.log(triggeringNibbas)
+  
+  for (let i = 0; i < randomInt(config.count.lower, config.count.upper); i++) { // i am soy incarnate
     msg.reply(generateSoy()); 
   }
 })
