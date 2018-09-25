@@ -1,0 +1,64 @@
+{
+  "messageLength": {
+    "quips": {
+      "lower": 10,
+      "upper": 50
+    },
+    "count": {
+      "lower": 2,
+      "upper": 5
+    }
+  },
+  "cooldownSeconds": 3,
+  "triggers": [
+    "fag", "fags", "faggots", "faggot", "gay",
+    "nigger", "niggers", "nog", "nig",
+    "abo",
+    "tranny",
+    "white",
+    "patriarchy",
+    "male", "man", "men",
+    "privilege",
+    "jew", "jews",
+    "chad",
+    "wage", "gap",
+    "free", "freedom",
+    "thot", "slut", "whore", "ho", "hoe",
+    "jordan", "peterson",
+    "moonman",
+    "lynch"
+  ],
+  "quips": [
+    "YAAAASS QUEEN SLAY",
+    "i literally can't even",
+    "it's almost as if",
+    "oof",
+    "YOU ARE NOT WELCOME HERE",
+    "toxic",
+    "oh sweet summer child...",
+    "yikes",
+    "oh hey",
+    "bigotry",
+    "folks",
+    "losing all faith in humanity",
+    "i'm literally shaking right now",
+    "ding, ding, ding",
+    "oh boy",
+    "let's unpack this",
+    "friendo",
+    "it's called being a decent human being",
+    "y'all",
+    "you do realise",
+    "wholesome",
+    "wow... just wow",
+    "this! so much this!",
+    "problematic",
+    "just shut up and listen",
+    "my wifes boyfriend",
+    "my wifes children",
+    "we will replace you",
+    "cuckolding is a gentlemen's fetish",
+    "um thats not my pronoun"
+  ],
+  "wrangledNibbas": []
+}
