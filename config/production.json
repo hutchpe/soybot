@@ -5,8 +5,8 @@
       "upper": 50
     },
     "count": {
-      "lower": 2,
-      "upper": 5
+      "lower": 1,
+      "upper": 1
     }
   },
   "cooldownSeconds": 3,
