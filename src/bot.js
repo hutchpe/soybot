@@ -11,4 +11,4 @@ client.on('message', msg => {
   soy.runSoy(msg)
 })
 
-client.login('NDkzMTc0NjA4MTEyMTIzOTE0.DonMtA.F9YqILbVNyPc7McTf9-ntgZGpLc');
+client.login('InsertKeyHere');
