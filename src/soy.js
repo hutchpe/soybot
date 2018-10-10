@@ -58,7 +58,7 @@ const validateUser = async user => {
     return false
   }
 
-  storage.bigots[userId].cutoff = getTimeStamp() + config.coolDownSeconds
+  storage.bigots[userId].cutoff = getTimeStamp() + config.cooldownSeconds
   file.writeToFile(storage)
 
   return true
