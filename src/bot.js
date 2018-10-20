@@ -10,7 +10,11 @@ client.on('ready', () => {
 });
 
 client.on('message', msg => {
-  soy.runSoy(msg)
+  try {
+    soy.runSoy(msg)
+  } catch (e) {
+    console.error(e)
+  }
 })
 
 client.login(auth.key);
